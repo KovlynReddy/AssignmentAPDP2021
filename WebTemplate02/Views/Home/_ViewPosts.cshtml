@@ -1,0 +1,8 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.InternalModels.Post>
+
+
+@foreach (var item in Model)
+{
+    <partial name="_PostView" model="item" />
+}
+

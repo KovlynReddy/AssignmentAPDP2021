@@ -1,0 +1,9 @@
+﻿@page "/TestAlphaUserRazorComponent"  
+@using WebTemplate02.Data.DataModels.Social; 
+
+<h1>@ThisUser.UserId</h1>>
+
+@code {
+
+    [Parameter] public AlphaUser ThisUser { get; set; }
+}

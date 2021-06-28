@@ -1,0 +1,100 @@
+﻿@model WebTemplate02.Models.TempAdminViewModel
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="container mt-3">
+        <h2>Filterable Table</h2>
+        <p>Search :</p>
+
+
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Booking history</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Location History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Activities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Contractors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu4">Hotel History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu5">Flight History</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active container" id="home">
+                @if (Model.bookings.Count > 0)
+                {
+                    <partial name="_BookingListView" model="Model.bookings" />
+
+                }
+
+            </div>
+
+            <div class="tab-pane container" id="menu1">
+                @if (Model.locations.Count > 0)
+                {
+
+                    <partial name="_LocationListView" model="Model.locations" />
+                }
+            </div>
+
+            <div class="tab-pane container" id="menu2">
+                @if (Model.activities.Count > 0)
+                {
+                    <partial name="_ActivityListView" model="Model.activities" />
+                }
+            </div>
+
+            <div class="tab-pane container" id="menu3">
+                @if (Model.contractors.Count > 0)
+                {
+                    <partial name="_ContractorListView" model="Model.contractors" />
+                }
+            </div>
+
+            <div class="tab-pane container" id="menu4">
+                @if (Model.hotels.Count > 0)
+                {
+                    <partial name="_HouseListView" model="Model.hotels" />
+
+                }
+            </div>
+
+            <div class="tab-pane container" id="menu5">
+                @if (Model.flights.Count > 0)
+                {
+
+                    <partial name="_FlightListView" model="Model.flights" />
+                }
+            </div>
+        </div>
+
+        <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+    </div>
+
+    @section Scripts{
+        <script>
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#MyTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+    }
+

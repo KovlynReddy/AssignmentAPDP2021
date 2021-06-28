@@ -1,0 +1,45 @@
+﻿@model WebTemplate02.Models.AgentChatModel
+
+
+
+@foreach (var message in Model.Conversation)
+{
+    if (message.SenderId == Model.UserId)
+    {
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-6">
+                <div class="media float-right">
+                    @message.Message
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="media float-left">
+                    @message.Message
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+        </div>
+    }
+}
+
+    <form asp-action="SendMessage">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Message" class="control-label"></label>
+            <input asp-for="Message" class="form-control" />
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+       
+        <div class="form-group">
+            <input type="submit" value="Send" class="btn btn-primary" />
+        </div>
+    </form>

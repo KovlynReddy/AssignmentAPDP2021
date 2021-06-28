@@ -1,0 +1,1 @@
+﻿select * from dbo.UserAccounts Where (UserId = 'd7967b05-7fe2-4385-b174-45e7e175bf08')

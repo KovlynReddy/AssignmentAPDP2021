@@ -1,0 +1,116 @@
+﻿@model WebTemplate02.Models.TempAdminViewModel
+
+@{ 
+    var locations = Model.locations;
+
+    var locationSlectList = Model.locations.Select(x => new SelectListItem { Text = x.LocationName, Value = x.LocationId }).ToList();
+}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Posts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1">Crud</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Dms</a>
+    </li>
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active container" id="home">
+        <div class="jumbotron-fluid">
+        <h>Add New Special</h> 
+
+        <form asp-action="AddSpecial">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NewSpecial" class="control-label"></label>
+                <input asp-for="NewSpecial" class="form-control" />
+                <span asp-validation-for="NewSpecial" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SpecialDesciption" class="control-label"></label>
+                <input asp-for="SpecialDesciption" class="form-control" />
+                <span asp-validation-for="SpecialDesciption" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>     
+            
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                Vacation To :
+                <label asp-for="LocationId" class="control-label"></label>
+                <select asp-for="LocationId" asp-items="locationSlectList"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Drivers" class="control-label"></label>
+                <input asp-for="Drivers" class="form-control" />
+                <span asp-validation-for="Drivers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstClass" class="control-label"></label>
+                <input asp-for="FirstClass" class="form-control" />
+                <span asp-validation-for="FirstClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activities" class="control-label"></label>
+                <input asp-for="Activities" class="form-control" />
+                <span asp-validation-for="Activities" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <div class="tab-pane container" id="menu1">
+        @if (Model.hotels.Count > 0)
+        {
+            <partial name="_HouseListView" model="Model.hotels" />
+        }
+
+        @if (Model.flights.Count > 0)
+        {
+            <partial name="_FlightListView" model="Model.flights" />
+        }
+        @if (Model.locations.Count > 0)
+        {
+            <partial name="_LocationListView" model="Model.locations" />
+        }
+        @if (Model.activities.Count > 0)
+        {
+
+            <partial name="_ActivityListView" model="Model.activities" />
+        }
+    </div>
+
+    <div class="tab-pane container" id="menu2">
+        @if (Model.adminDms.Count > 0 )
+        {
+            foreach (var header in Model.adminDms)
+            {
+        <partial name="_Conversation" model="header" />
+            }
+        }
+    </div>
+
+
+</div>

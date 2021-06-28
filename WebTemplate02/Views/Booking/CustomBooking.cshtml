@@ -1,0 +1,72 @@
+﻿
+@model WebTemplate02.Models.BaseBookingViewModel;
+@{
+    ViewData["Title"] = "CustomBooking";
+}
+
+@{
+    var locations = Model.ListLocations;
+    var hotels = Model.ListHotels;
+    var locationSlectList = Model.ListLocations.Select(x => new SelectListItem { Text = x.LocationName, Value = x.LocationId }).ToList();
+    var hotelSlectList = Model.ListHotels.Select(x => new SelectListItem { Text = x.HotelName, Value = x.HotelId }).ToList();
+}
+@{ 
+
+
+
+}
+@{ 
+<h1>CustomBooking</h1>
+<form asp-controller="Booking" asp-action="BaseBooking" method="post">
+    <div class="form-group">
+        Home : 
+        <label asp-for="LocationInId" class="control-label"></label>
+        <select asp-for="LocationInId" asp-items="locationSlectList"></select>
+    </div>
+
+    <div class="form-group">
+        Vaccation :
+        <label asp-for="LocationOutId" class="control-label"></label>
+        <select asp-for="LocationOutId" asp-items="locationSlectList"></select>
+    </div>
+
+    @if (Model.ListHotels.Count < 20)
+    {
+        <div>
+            <select asp-for="HotelId" asp-items="hotelSlectList"></select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TimeIn" class="control-label"></label>
+            <input asp-for="TimeIn" class="form-control" />
+            <span asp-validation-for="TimeIn" class="text-danger"></span>
+
+            <label asp-for="TimeOut" class="control-label"></label>
+            <input asp-for="TimeOut" class="form-control" />
+            <span asp-validation-for="TimeOut" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Duration" class="control-label"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+    }
+    <input type="hidden" name="ListReservations" value="@Model.ListReservations">
+    <input type="hidden" name="ListHotels" value="@hotels">
+    <input type="hidden" name="ListLocations" value="@locations">
+    @{
+        @*@Model.ListHotels = hotels;
+            @Model.ListLocations = locations;*@
+    }
+
+    <button type="submit">Book</button>
+
+</form>
+}
+<script lang="javascript">
+
+
+
+</script>

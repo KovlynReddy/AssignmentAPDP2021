@@ -1,0 +1,28 @@
+﻿@model List<WebTemplate02.Data.DataModels.InternalModels.PostViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    bool hasdata = Model.Count > 0;
+}
+@using WebTemplate02.Views.Shared
+@using WebTemplate02.Data.DataModels.Social
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <a class="btn btn-success" asp-action="Test" asp-route-id="14"> Test </a>
+    <a class="btn btn-success" asp-action="TestConn" asp-route-id="14"> LoadDB </a>
+</div>
+
+@if(hasdata)
+{
+
+@foreach (var item in Model)
+{
+<partial name="_PostView" model="item" />
+}
+}
+
+
+
+@*<component type="typeof(TestAlphaUserRazorComponent)" render-mode="ServerPrerendered" ThisUser ="@(new AlphaUser();)"/>*@
+@*this works VVVVVV*@
+@*@(await Html.RenderComponentAsync<TestAlphaUserRazorComponent>(RenderMode.ServerPrerendered,new { ThisUser = new AlphaUser() }))*@

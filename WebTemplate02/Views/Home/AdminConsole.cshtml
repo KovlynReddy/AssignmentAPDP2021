@@ -1,0 +1,25 @@
+﻿@model WebTemplate02.Models.TempAdminViewModel
+
+@{
+    ViewData["Title"] = "AdminConsole";
+}
+
+<h1>AdminConsole</h1>
+
+<div>
+    <h4>TempAdminViewModel</h4>
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+<div>
+<partial name="_LocationListView" model="Model.locations">
+<partial name="_HouseListView" model="Model.hotels">
+<partial name="_ContractorListView" model="Model.contractors">
+<partial name="_FlightListView" model="Model.flights">
+<partial name="_ReservationListView" model="Model.reservations">
+@*<partial name="_TransactionListView" model="Model.transactions">
+*@
+<partial name="_ActivityListView" model="Model.activities">
+
+    </div>

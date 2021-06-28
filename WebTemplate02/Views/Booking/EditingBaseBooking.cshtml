@@ -1,0 +1,99 @@
+﻿@model WebTemplate02.Models.BaseBookingViewModel
+
+@{
+    ViewData["Title"] = "EditingBaseBooking";
+}
+
+<h1>EditingBaseBooking</h1>
+
+<h4>BaseBookingViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditingBaseBooking">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingBaseViewId" class="control-label"></label>
+                <input asp-for="BookingBaseViewId" class="form-control" />
+                <span asp-validation-for="BookingBaseViewId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="TimeIn" class="control-label"></label>
+                <input asp-for="TimeIn" class="form-control" />
+                <span asp-validation-for="TimeIn" class="text-danger"></span>
+            </div>      
+            <div class="form-group">
+                <label asp-for="TimeOut" class="control-label"></label>
+                <input asp-for="TimeOut" class="form-control" />
+                <span asp-validation-for="TimeOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightIn" class="control-label"></label>
+                <input asp-for="FlightIn" class="form-control" />
+                <span asp-validation-for="FlightIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationIn" class="control-label"></label>
+                <input asp-for="ReservationIn" class="form-control" />
+                <span asp-validation-for="ReservationIn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimeOut" class="control-label"></label>
+                <input asp-for="TimeOut" class="form-control" />
+                <span asp-validation-for="TimeOut" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FlightOut" class="control-label"></label>
+                <input asp-for="FlightOut" class="form-control" />
+                <span asp-validation-for="FlightOut" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ReservationOut" class="control-label"></label>
+                <input asp-for="ReservationOut" class="form-control" />
+                <span asp-validation-for="ReservationOut" class="text-danger"></span>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="LocationInId" class="control-label"></label>
+                <input asp-for="LocationInId" class="form-control" />
+                <span asp-validation-for="LocationInId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LocationOutId" class="control-label"></label>
+                <input asp-for="LocationOutId" class="form-control" />
+                <span asp-validation-for="LocationOutId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="HotelId" class="control-label"></label>
+                <input asp-for="HotelId" class="form-control" />
+                <span asp-validation-for="HotelId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

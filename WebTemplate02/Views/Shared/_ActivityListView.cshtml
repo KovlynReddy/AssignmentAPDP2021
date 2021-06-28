@@ -1,0 +1,6 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.BookingModels.AActivity>
+
+@foreach (var item in Model)
+{
+    <partial name="_ActivityView" model="item" />
+}

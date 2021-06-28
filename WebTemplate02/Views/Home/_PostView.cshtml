@@ -1,0 +1,20 @@
+﻿@model WebTemplate02.Data.DataModels.InternalModels.PostViewModel
+
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="/StalkImage.png" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Message</h4>
+            <p class="card-text">@Model.Description</p>
+            <p class="card-text">
+                <label asp-for="Drivers" class="control-label"></label>
+                <input asp-for="Drivers" class="control-label"></input>
+                <label asp-for="Activities" class="control-label"></label>
+                <input asp-for="Activities" class="control-label"></input>
+                <label asp-for="FirstClass" class="control-label"></label>
+                <input asp-for="FirstClass" class="control-label"></input>
+                <input asp-for="Duration" class="control-label"></input>
+                <input asp-for="Cost" class="form-control" />
+            </p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+    </div>

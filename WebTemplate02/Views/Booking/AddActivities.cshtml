@@ -1,0 +1,50 @@
+﻿@model WebTemplate02.Models.AddActivityToBaseBookingViewModel
+@using WebTemplate02.Data.DataModels.BookingModels; 
+@{
+    ViewData["Title"] = "AddActivities";
+    Model.Days.Add(new AActivity());
+    var ActivitySlectList = Model.ListActivity.Select(x => new SelectListItem { Text = x.ActivityDesciption, Value = x.ActivityId }).ToList();
+}
+
+<h1>AddActivities</h1>
+
+<h4>AddActivityToBaseBookingViewModel</h4>
+<hr />
+<div class="row">   
+    <div class="col-md-4">
+        <form asp-action="AddActivities">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+          
+                    @for (var index = 0; index < Model.baseModel.DurationDays; index++){
+                    <div class="form-group">
+                        <div>
+                            <label asp-for="@Model.DaysActivities[index]"></label>
+                            <input asp-for="@Model.DaysActivities[index]" />
+                        <select asp-for="@Model.DaysActivities[index]" asp-items="ActivitySlectList"></select>
+                        </div>
+                    </div>
+                    }
+
+                
+
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFlightOut" class="control-label"></label>
+                <input asp-for="DateFlightOut" class="form-control" />
+                <span asp-validation-for="DateFlightOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

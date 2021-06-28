@@ -1,0 +1,5 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.InternalModels.Reservation>
+@foreach (var item in Model)
+{
+    <partial name="_ReservationView" model="item" />
+}

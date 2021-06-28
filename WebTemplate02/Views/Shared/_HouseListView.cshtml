@@ -1,0 +1,5 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.BookingModels.Hotel>
+@foreach (var item in Model)
+{
+    <partial name="_HotelView" model="item" />
+}

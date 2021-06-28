@@ -1,0 +1,6 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.InternalModels.Transaction>
+
+@foreach (var item in Model)
+{
+    <partial name="_TransactionView" model="item" />
+}

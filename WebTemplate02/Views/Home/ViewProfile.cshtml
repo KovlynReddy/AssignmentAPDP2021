@@ -1,0 +1,68 @@
+﻿@model WebTemplate02.Models.ProfileViewModel
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Booking history</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1">Location History</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">User Profile</a>
+    </li> 
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu3">User Account</a>
+    </li>    
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu4">Hotel History</a>
+    </li>   
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu5">Flight History</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active container" id="home">
+            @if (Model.BookingHistory.Count > 0)
+            {
+        <partial name="_BookingListView" model="Model.BookingHistory"/>
+
+            }
+        
+            </div>
+
+    <div class="tab-pane container" id="menu1">
+        @if (Model.VisitHistory.Count > 0)
+        {
+
+        <partial name="_LocationListView" model="Model.VisitHistory"/>
+        }
+    </div>
+
+    <div class="tab-pane container" id="menu2">
+        <partial name="_UserProfileView" model="Model.MyProfile"/>
+
+    </div>
+
+    <div class="tab-pane container" id="menu3">
+
+        <partial name="_UserAccountView" model="Model.userAccount"/>
+    </div>  
+    
+    <div class="tab-pane container" id="menu4">
+        @if (Model.HotelHistory.Count > 0)
+        {
+        <partial name="_HouseListView" model="Model.HotelHistory"/>
+
+        }
+    </div> 
+    
+    <div class="tab-pane container" id="menu5">
+        @if (Model.FlightHistory.Count > 0)
+        {
+
+        <partial name="_FlightListView" model="Model.FlightHistory"/>
+        }
+    </div>
+</div>

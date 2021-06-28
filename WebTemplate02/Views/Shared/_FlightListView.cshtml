@@ -1,0 +1,6 @@
+﻿@model IEnumerable<WebTemplate02.Data.DataModels.BookingModels.Flight>
+
+@foreach (var item in Model)
+{
+    <partial name="_FlightView" model="item" />
+}

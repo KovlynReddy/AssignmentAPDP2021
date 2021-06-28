@@ -1,0 +1,10 @@
+﻿@model WebTemplate02.Models.ContractViewModelAdmin
+
+<div class="media border p-3">
+  <img src="~/StalkImage.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>@Model.Username <small><i>@Model.TimeLastMessageSent</i></small></h4>
+    <p>@Model.LastMessageSent</p>
+    <a class="nav-link text-dark" asp-area=""  asp-controller="Admin" asp-action="TextClient" asp-route-id="@Model.Username"> Text Client </a>
+  </div>
+</div>
